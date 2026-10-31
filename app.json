@@ -1,5 +1,14 @@
 {
-  "pages": ["pages/home/home", "pages/category/index", "pages/cart/index", "pages/usercenter/index"],
+  "pages": [
+    "pages/home/home",
+    "pages/wanted/index",
+    "pages/publish/index",
+    "pages/messages/index",
+    "pages/usercenter/index",
+    "pages/category/index",
+    "pages/cart/index",
+    "pages/campus-placeholder/index"
+  ],
   "subpackages": [
     {
       "root": "pages/user",
@@ -48,8 +57,8 @@
   ],
   "tabBar": {
     "custom": true,
-    "color": "#666666",
-    "selectedColor": "#FF5F15",
+    "color": "#66736D",
+    "selectedColor": "#167D65",
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
     "list": [
@@ -58,12 +67,16 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/category/index",
-        "text": "分类"
+        "pagePath": "pages/wanted/index",
+        "text": "求购"
       },
       {
-        "pagePath": "pages/cart/index",
-        "text": "购物车"
+        "pagePath": "pages/publish/index",
+        "text": "发布"
+      },
+      {
+        "pagePath": "pages/messages/index",
+        "text": "消息"
       },
       {
         "pagePath": "pages/usercenter/index",

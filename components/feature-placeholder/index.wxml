@@ -1,0 +1,14 @@
+<view class="preview"
+  ><view class="intro"><image class="mark" src="/assets/home/vase.svg" /><text class="brand">景院集市</text></view
+  ><view class="content"
+    ><view class="symbol"><t-icon name="{{icon}}" size="64rpx" /></view><text class="title">{{title}}</text
+    ><text class="status">筹备中 · 功能暂未开放</text><text class="description">{{description}}</text
+    ><button class="home-button" bindtap="goHome" hover-class="pressed">回首页逛逛</button></view
+  ><view wx:if="{{legacy}}" class="legacy"
+    ><text class="legacy-title">原商城模板体验</text
+    ><text class="legacy-note">以下保留原有演示页面，不是真实校园交易。</text
+    ><view class="legacy-actions"
+      ><button bindtap="openCategory">商品分类</button><button bindtap="openCart">购物车</button></view
+    ></view
+  ><text class="slogan">让闲置流动起来，让校园生活更美好。</text></view
+>

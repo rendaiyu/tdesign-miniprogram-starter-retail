@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "消息",
+  "navigationBarBackgroundColor": "#F7F9F8",
+  "usingComponents": { "feature-placeholder": "/components/feature-placeholder/index" }
+}

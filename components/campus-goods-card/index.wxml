@@ -1,0 +1,28 @@
+<view class="card" bindtap="open" hover-class="card-pressed" role="button" aria-label="查看示例商品：{{goods.title}}">
+  <view class="cover" style="height:{{goods.imageHeight}}rpx">
+    <image
+      wx:if="{{!imageFailed}}"
+      class="photo"
+      src="{{goods.image}}"
+      mode="aspectFill"
+      lazy-load
+      binderror="onImageError"
+    />
+    <view wx:else class="image-fallback"><t-icon name="image" size="44rpx" /><text>图片暂不可用</text></view>
+    <text class="condition">{{goods.condition}}</text><text class="sample">示例</text>
+  </view>
+  <view class="content">
+    <text class="name">{{goods.title}}</text>
+    <view class="price-row"
+      ><price price="{{goods.price}}" wr-class="campus-price" symbol-class="campus-symbol" /><button
+        class="favorite {{goods.favorite?'is-favorite':''}}"
+        catchtap="favorite"
+        aria-label="{{goods.favorite?'取消收藏演示':'收藏演示'}}"
+        ><t-icon name="{{goods.favorite?'heart-filled':'heart'}}" size="34rpx" /></button
+    ></view>
+    <view class="seller"
+      ><text class="avatar">{{goods.initial}}</text><text class="seller-name">{{goods.seller}}</text
+      ><text class="time">{{goods.time}}</text></view
+    >
+  </view>
+</view>

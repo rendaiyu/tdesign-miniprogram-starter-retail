@@ -9,7 +9,8 @@ Page({
 
   // 调用自定义tabbar的init函数，使页面与tabbar激活状态保持一致
   onShow() {
-    this.getTabBar().init();
+    const tabBar = this.getTabBar && this.getTabBar();
+    if (tabBar) tabBar.init();
   },
 
   onLoad() {

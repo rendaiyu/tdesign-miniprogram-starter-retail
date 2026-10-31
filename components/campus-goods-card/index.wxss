@@ -1,0 +1,131 @@
+:host {
+  display: block;
+}
+.card {
+  overflow: hidden;
+  border-radius: var(--jy-radius);
+  background: var(--jy-surface);
+  margin-bottom: 20rpx;
+  box-shadow: var(--jy-shadow);
+  color: var(--jy-text);
+}
+.cover {
+  position: relative;
+  background: var(--jy-tint);
+}
+.photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.condition {
+  position: absolute;
+  left: 14rpx;
+  top: 14rpx;
+  background: var(--jy-surface);
+  color: var(--jy-primary-dark);
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+  font-size: 21rpx;
+  font-weight: 500;
+}
+.sample {
+  position: absolute;
+  right: 12rpx;
+  bottom: 12rpx;
+  background: rgba(32, 39, 37, 0.6);
+  color: var(--jy-surface);
+  padding: 2rpx 9rpx;
+  border-radius: 6rpx;
+  font-size: 20rpx;
+}
+.content {
+  padding: 16rpx 18rpx 18rpx;
+}
+.name {
+  font-size: 27rpx;
+  font-weight: 550;
+  line-height: 40rpx;
+  height: 80rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64rpx;
+}
+.campus-price {
+  color: var(--jy-price);
+  font-size: 38rpx;
+  font-weight: 650;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.campus-symbol {
+  font-size: 24rpx;
+  margin-right: 3rpx;
+}
+.favorite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72rpx;
+  height: 64rpx;
+  padding: 0;
+  margin: 0 -12rpx 0 0;
+  background: transparent;
+  color: var(--jy-secondary);
+}
+.favorite.is-favorite {
+  color: var(--jy-primary-dark);
+}
+.favorite::after {
+  border: none;
+}
+.seller {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  font-size: 21rpx;
+  color: var(--jy-readable-secondary);
+  height: 32rpx;
+}
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--jy-tint);
+  color: var(--jy-primary-dark);
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  font-size: 18rpx;
+  flex-shrink: 0;
+}
+.seller-name {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.time {
+  font-size: 20rpx;
+  white-space: nowrap;
+}
+.image-fallback {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14rpx;
+  color: var(--jy-readable-secondary);
+  font-size: 24rpx;
+}
+.card-pressed {
+  opacity: 0.75;
+}

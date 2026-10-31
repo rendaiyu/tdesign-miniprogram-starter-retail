@@ -9,7 +9,7 @@ Component({
 
   methods: {
     goToCart() {
-      wx.switchTab({
+      wx.navigateTo({
         url: '/pages/cart/index',
       });
     },

@@ -1,0 +1,109 @@
+.preview {
+  min-height: 75vh;
+  padding: 40rpx 40rpx calc(160rpx + env(safe-area-inset-bottom));
+  box-sizing: border-box;
+  color: var(--jy-text);
+  background: var(--jy-background);
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+.intro {
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+}
+.mark {
+  width: 54rpx;
+  height: 54rpx;
+}
+.brand {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 72rpx 28rpx 48rpx;
+  background: var(--jy-surface);
+  border-radius: var(--jy-radius);
+  margin-top: 32rpx;
+}
+.symbol {
+  width: 126rpx;
+  height: 126rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--jy-tint);
+  color: var(--jy-primary-dark);
+  margin-bottom: 32rpx;
+}
+.title {
+  font-size: 38rpx;
+  font-weight: 650;
+}
+.status {
+  font-size: 24rpx;
+  color: var(--jy-primary-dark);
+  margin-top: 12rpx;
+}
+.description {
+  font-size: 28rpx;
+  line-height: 1.8;
+  color: var(--jy-readable-secondary);
+  margin-top: 28rpx;
+  max-width: 520rpx;
+}
+.home-button {
+  margin-top: 44rpx;
+  padding: 20rpx 50rpx;
+  line-height: 1.5;
+  border-radius: 44rpx;
+  font-size: 28rpx;
+  background: var(--jy-primary-dark);
+  color: var(--jy-surface);
+}
+button::after {
+  border: none;
+}
+.slogan {
+  display: block;
+  text-align: center;
+  margin-top: 50rpx;
+  font-size: 24rpx;
+  color: var(--jy-readable-secondary);
+}
+.legacy {
+  margin-top: 24rpx;
+  padding: 28rpx;
+  background: var(--jy-surface);
+  border-radius: var(--jy-radius);
+}
+.legacy-title {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.legacy-note {
+  display: block;
+  font-size: 23rpx;
+  color: var(--jy-readable-secondary);
+  margin-top: 10rpx;
+}
+.legacy-actions {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 22rpx;
+}
+.legacy-actions button {
+  flex: 1;
+  font-size: 26rpx;
+  border-radius: 32rpx;
+  background: var(--jy-tint);
+  color: var(--jy-primary-dark);
+  line-height: 2.8;
+}
+.pressed {
+  opacity: 0.7;
+}

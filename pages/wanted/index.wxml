@@ -1,0 +1,6 @@
+<feature-placeholder
+  title="{{feature.title}}"
+  description="{{feature.description}}"
+  icon="{{feature.icon}}"
+  legacy="{{feature.legacy}}"
+/>

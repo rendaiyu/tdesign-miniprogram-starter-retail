@@ -1,58 +1,88 @@
-<view style="text-align: center; color: #b9b9b9" wx:if="{{pageLoading}}">
-  <t-loading theme="circular" size="40rpx" text="加载中..." inherit-color />
-</view>
-<view class="home-page-header">
-  <view class="search" bind:tap="navToSearchPage">
-    <t-search
-      t-class-input="t-search__input"
-      t-class-input-container="t-search__input-container"
-      placeholder="iphone 13 火热发售中"
-      leftIcon=""
-      disabled
+<view class="jy-page home">
+  <view class="hero" style="padding-top:{{statusBarHeight}}px">
+    <image class="campus-background" src="/assets/home/campus.jpg" mode="aspectFill" /><view class="hero-wash"></view>
+    <view class="brand-row"
+      ><image class="brand-mark" src="/assets/home/vase.svg" /><text class="brand-title">景院集市</text></view
     >
-      <t-icon slot="left-icon" prefix="wr" name="search" size="40rpx" color="#bbb" />
-    </t-search>
-  </view>
-  <view class="swiper-wrap">
-    <t-swiper
-      wx:if="{{imgSrcs.length > 0}}"
-      current="{{current}}"
-      autoplay="{{autoplay}}"
-      duration="{{duration}}"
-      interval="{{interval}}"
-      navigation="{{navigation}}"
-      imageProps="{{swiperImageProps}}"
-      list="{{imgSrcs}}"
-      bind:click="navToActivityDetail"
-    />
-  </view>
-</view>
-<view class="home-page-container">
-  <view class="home-page-tabs">
-    <t-tabs
-      t-class="t-tabs"
-      t-class-active="tabs-external__active"
-      t-class-item="tabs-external__item"
-      defaultValue="{{0}}"
-      space-evenly="{{false}}"
-      bind:change="tabChangeHandle"
+    <view class="brand-subtitle">景德镇学院 · 校园交易平台</view>
+    <view class="search-box"
+      ><t-icon name="search" size="36rpx" /><input
+        class="search-input"
+        value="{{keyword}}"
+        bindinput="onSearchInput"
+        bindconfirm="onSearchConfirm"
+        confirm-type="search"
+        placeholder="搜索二手商品、教材、画具……"
+        placeholder-class="search-placeholder"
+        maxlength="50"
+        aria-label="搜索示例商品"
+      /><button wx:if="{{keyword}}" class="clear-search" bindtap="clearSearch" aria-label="清空搜索"
+        ><t-icon name="close" size="30rpx" /></button
+      ><button wx:else class="search-action" bindtap="onSearchConfirm">搜索</button></view
     >
-      <t-tab-panel
-        wx:for="{{tabList}}"
-        wx:for-index="index"
-        wx:key="index"
-        label="{{item.text}}"
-        value="{{item.key}}"
-      />
-    </t-tabs>
   </view>
-
-  <goods-list
-    wr-class="goods-list-container"
-    goodsList="{{goodsList}}"
-    bind:click="goodListClickHandle"
-    bind:addcart="goodListAddCartHandle"
-  />
-  <load-more list-is-empty="{{!goodsList.length}}" status="{{goodsListLoadStatus}}" bind:retry="onReTry" />
-  <t-toast id="t-toast" />
+  <view class="main-content">
+    <view class="quick-entries"
+      ><button
+        wx:for="{{entries}}"
+        wx:key="key"
+        class="quick-entry"
+        data-key="{{item.key}}"
+        bindtap="onEntry"
+        hover-class="jy-pressed"
+        ><view class="entry-icon {{item.tone}}"><t-icon name="{{item.icon}}" size="45rpx" /></view
+        ><text class="entry-name">{{item.name}}</text><text class="entry-subtitle">{{item.subtitle}}</text></button
+      ></view
+    >
+    <button class="activity" bindtap="onActivity" hover-class="jy-pressed"
+      ><view class="activity-copy"
+        ><text class="activity-title">毕业季 · 闲置不闲</text
+        ><text class="activity-subtitle">让好物遇见下一个景院人</text></view
+      ><image class="activity-plane" src="/assets/home/paper-plane.svg" /><t-icon name="chevron-right" size="30rpx"
+    /></button>
+    <view id="campus-market" class="market">
+      <scroll-view class="category-scroll" scroll-x enhanced show-scrollbar="{{false}}"
+        ><view class="category-row"
+          ><button
+            wx:for="{{categories}}"
+            wx:key="key"
+            class="category {{category===item.key?'selected':''}}"
+            data-key="{{item.key}}"
+            bindtap="onCategoryChange"
+            hover-class="jy-pressed"
+            >{{item.label}}</button
+          ></view
+        ></scroll-view
+      >
+      <view class="market-note"><text>同校好物，等你发现</text><text class="demo-label">商品与卖家均为示例</text></view>
+      <view wx:if="{{loading}}" class="state"><t-loading theme="circular" size="40rpx" text="好物加载中" /></view>
+      <view wx:elif="{{failed}}" class="state"
+        ><t-icon name="error-circle" size="60rpx" /><text class="state-title">暂时没能加载好物</text
+        ><button class="state-action" bindtap="loadHome">重新加载</button></view
+      >
+      <view wx:elif="{{!totalCount}}" class="state"
+        ><t-icon name="search" size="60rpx" /><text class="state-title">还没有找到这件好物</text
+        ><text class="state-description">试试其他关键词，或看看全部示例商品</text
+        ><button class="state-action" bindtap="resetFilters">查看全部</button></view
+      >
+      <view wx:else class="waterfall"
+        ><view
+          wx:for="{{columns}}"
+          wx:for-item="column"
+          wx:for-index="columnIndex"
+          wx:key="index"
+          class="waterfall-column"
+          ><campus-goods-card
+            wx:for="{{column}}"
+            wx:for-item="goods"
+            wx:key="id"
+            goods="{{goods}}"
+            bind:open="onGoodsOpen"
+            bind:favorite="onFavorite" /></view
+      ></view>
+      <view wx:if="{{!loading && !failed && totalCount}}" class="list-end"
+        >{{visibleCount < totalCount?'继续上滑，发现更多好物':'好物不浪费，美好在景院'}}</view
+      >
+    </view>
+  </view>
 </view>

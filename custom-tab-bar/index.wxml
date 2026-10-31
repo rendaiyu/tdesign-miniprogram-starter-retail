@@ -1,18 +1,14 @@
-<t-tab-bar
- value="{{active}}"
- bindchange="onChange"
- split="{{false}}"
+<view class="campus-nav"
+  ><button
+    wx:for="{{list}}"
+    wx:key="url"
+    class="nav-item {{active===index?'active':''}}"
+    data-index="{{index}}"
+    bindtap="onChange"
+    hover-class="nav-pressed"
+    aria-label="{{item.text}}"
+    ><view class="{{item.publish?'publish-circle':'nav-icon'}}"
+      ><t-icon name="{{item.icon}}" size="{{item.publish?'48rpx':'42rpx'}}" /></view
+    ><text class="nav-label">{{item.text}}</text></button
+  ></view
 >
-	<t-tab-bar-item
-	 wx:for="{{list}}"
-	 wx:for-item="item"
-	 wx:for-index="index"
-	 wx:key="index"
-	>
-		<view class="custom-tab-bar-wrapper">
-			<t-icon prefix="wr" name="{{item.icon}}" size="48rpx" />
-			<view class="text">{{ item.text }}</view>
-		</view>
-	</t-tab-bar-item>
-</t-tab-bar>
-

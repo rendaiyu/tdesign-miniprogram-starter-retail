@@ -1,0 +1,42 @@
+/* 景院集市统一主题；jy- 前缀避免改变原模板页面布局。 */
+page {
+  --jy-primary: #25a77f;
+  --jy-primary-dark: #167d65;
+  --jy-background: #f7f9f8;
+  --jy-surface: #ffffff;
+  --jy-text: #202725;
+  --jy-secondary: #8a9290;
+  --jy-readable-secondary: #66736d;
+  --jy-price: #ff5a4f;
+  --jy-tint: #e8f5ef;
+  --jy-line: #edf1ee;
+  --jy-sky: #eef5fa;
+  --jy-clay: #f7eee3;
+  --jy-blue: #4d7d9b;
+  --jy-blue-tint: #e9f1fa;
+  --jy-sand: #a77837;
+  --jy-shadow: 0 4rpx 18rpx rgba(29, 65, 50, 0.035);
+  --jy-radius: 24rpx;
+}
+.jy-page {
+  background: var(--jy-background);
+  color: var(--jy-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+.jy-pressed {
+  opacity: 0.72;
+}
+.jy-button {
+  background: var(--jy-primary-dark);
+  color: var(--jy-surface);
+  font-size: 28rpx;
+  font-weight: 600;
+  border-radius: 44rpx;
+  padding: 22rpx 32rpx;
+  line-height: 1.5;
+}
+.jy-button::after {
+  border: none;
+}

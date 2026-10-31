@@ -1,6 +1,7 @@
 @import 'style/iconfont.wxss';
 
 @import 'style/theme.wxss';
+@import 'style/jingyuan.wxss';
 
 .cell--noborder .t-cell::after {
   border-bottom: none !important;

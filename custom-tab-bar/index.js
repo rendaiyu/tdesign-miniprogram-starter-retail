@@ -1,29 +1,26 @@
 import TabMenu from './data';
 Component({
-  data: {
-    active: 0,
-    list: TabMenu,
+  data: { active: 0, list: TabMenu },
+  lifetimes: {
+    attached() {
+      this.init();
+    },
   },
-
   methods: {
     onChange(event) {
-      this.setData({ active: event.detail.value });
+      const index = Number(event.currentTarget.dataset.index);
+      const item = this.data.list[index];
+      if (!item) return;
       wx.switchTab({
-        url: this.data.list[event.detail.value].url.startsWith('/')
-          ? this.data.list[event.detail.value].url
-          : `/${this.data.list[event.detail.value].url}`,
+        url: '/' + item.url,
+        success: () => this.setData({ active: index }),
+        fail: () => wx.showToast({ title: '页面暂时无法打开，请重试', icon: 'none' }),
       });
     },
-
     init() {
       const page = getCurrentPages().pop();
       const route = page ? page.route.split('?')[0] : '';
-      const active = this.data.list.findIndex(
-        (item) =>
-          (item.url.startsWith('/') ? item.url.substr(1) : item.url) ===
-          `${route}`,
-      );
-      this.setData({ active });
+      this.setData({ active: this.data.list.findIndex((item) => item.url === route) });
     },
   },
 });

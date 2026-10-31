@@ -1,4 +1,5 @@
 import Toast from 'tdesign-miniprogram/toast/index';
+import { navigateRetail } from '../../../utils/navigation';
 import { fetchGood } from '../../../services/good/fetchGood';
 import { fetchActivityList } from '../../../services/activity/fetchActivityList';
 import {
@@ -112,9 +113,7 @@ Page({
 
   toNav(e) {
     const { url } = e.detail;
-    wx.switchTab({
-      url: url,
-    });
+    navigateRetail(url);
   },
 
   showCurImg(e) {
